@@ -33,14 +33,12 @@
 		fe0_dev = <0>;
 	};
 	ethmac: ethernet@0xc9410000 {
-		compatible = "amlogic, gxbb-rgmii-dwmac";
-		phy-mode= "rgmii";
-		mc_val = <0x1621>;
+		/* External PHY reset is shared with internal PHY Led signals */
+		snps,reset-gpio = <&gpio GPIOZ_14 0>;
+		snps,reset-delays-us = <0 10000 1000000>;
+		snps,reset-active-low;
 	};
 
-	sdio {
-		interrupts = <	0 216 1>;
-	};
 };
 
 &pinmux {
