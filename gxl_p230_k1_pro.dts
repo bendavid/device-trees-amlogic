@@ -32,6 +32,15 @@
 		fe0_ts = <0>;
 		fe0_dev = <0>;
 	};
+	ethmac: ethernet@0xc9410000 {
+		compatible = "amlogic, gxbb-rgmii-dwmac";
+		phy-mode= "rgmii";
+		mc_val = <0x1621>;
+	};
+
+	sdio {
+		interrupts = <	0 216 1>;
+	};
 };
 
 &pinmux {
